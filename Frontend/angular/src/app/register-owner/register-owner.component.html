@@ -1,0 +1,99 @@
+
+  
+	<div class="container" style="margin-bottom: 100px;">
+		<div class="img" s>
+			<img src="/assets/img/imagelog.png">
+		</div>
+		<div class="login-content">
+			<form [formGroup]="signupForm">
+				<h2  style="color: #3F63AF;" class="title">Sign Up Owner</h2>
+     
+           		<div class="input-div one">
+           		   <div class="i">
+           		   		<i class="fas fa-user"></i>
+           		   </div>
+           		   <div class="div">           		   		
+           		   		<input type="text" placeholder="firstName" class="input" formControlName="firstName">
+							
+           		   </div>
+           		</div>
+           		<div class="input-div one">
+           		   <div class="i">
+           		   		<i class="fas fa-user"></i>
+           		   </div>
+				   
+           		   <div class="div">
+					
+					<input placeholder="LastName" type="text" class="input" formControlName="lastName">
+				
+				  </div>
+			
+           		</div>
+				   <div class="input-div one">
+					<div class="i">
+							<i class="fas fa-envelope"></i>
+					</div>
+					<div class="div">
+							<input formControlName="email" placeholder="email" type="email" class="input">
+							<!-- <mat-error  *ngIf="signupForm.get('email').hasError('required') && signupForm.get('email').touched">
+							  This field is mandatory
+							</mat-error>
+							<mat-error *ngIf="signupForm.get('email').hasError('pattern')">
+							  This field is invalid
+							</mat-error> -->
+				  </div>
+				 </div>
+           		<div class="input-div one">
+           		   <div class="i">
+           		   		<i class="fas fa-phone"></i>
+           		   </div>
+           		   <div class="div">
+           		   		<input formControlName="phoneNumber" placeholder="phoneNumber" type="contactNumber" class="input">
+							
+					</div>
+           		</div>
+           	
+           		<div class="input-div pass">
+           		   <div class="i"> 
+           		    	<i class="fas fa-lock"></i>
+           		   </div>
+           		   <div class="div">
+					<input formControlName="password" [type]="showPassword ? 'text' : 'password'" name="password" placeholder="password" type="password" class="input">
+					<!-- <mat-error  *ngIf="signupForm.get('password').hasError('required') && signupForm.get('password').touched">
+						This field is mandatory
+					  </mat-error>
+					  <mat-error *ngIf="signupForm.get('password').hasError('pattern')">
+						This field is invalid
+					  </mat-error> -->
+					
+					</div>
+	
+            	</div>
+				<input style="margin-left: -210px;" placeholder="show" type="checkbox" [checked]="showPassword" (change)="togglePasswordVisibility()"  >
+
+				<label style="margin-left: 10px;" for="passwordToggle">Show Password</label>
+
+            	<a routerLink="/login">Sign In ?</a>
+              
+            <p class="social-text">Or Sign Up with social platforms</p>
+            <div class="social-media">
+              <a href="#" class="social-icon">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-google"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+            	<input type="submit" (click)="handleSubmit()"  class="btn" value="Sign-Up">
+            </form>
+        </div>
+    </div>
+
+
+    

@@ -1,0 +1,14 @@
+<div class="messages-container">
+    <h2>Inbox</h2>
+    <div *ngFor="let message of messages" [class.unread]="!message.isRead">
+      <p><strong>From:</strong> {{ message.senderId }}</p>
+      <p>{{ message.content }}</p>
+      <small>{{ message.timestamp }}</small>
+      <button *ngIf="!message.isRead" (click)="markAsRead(message.id)">Mark as Read</button>
+    </div>
+  
+    <h2>Send a Message</h2>
+    <textarea [(ngModel)]="newMessageContent" placeholder="Write your message here"></textarea>
+    <button (click)="sendMessage()">Send</button>
+  </div>
+  

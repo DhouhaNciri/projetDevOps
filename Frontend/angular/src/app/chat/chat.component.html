@@ -1,0 +1,39 @@
+<div class="chat-container">
+    <h2>Chat</h2>
+  
+    <!-- Messages Section -->
+    <div class="messages-list">
+      <h3>Messages:</h3>
+      <ul>
+        <li *ngFor="let message of messages" class="message-item" (click)="setRecipientId(message.sendFrom.id)">
+          <div class="message-header">
+            <strong>From:</strong> {{ message.sendFrom.firstName }} {{ message.sendFrom.lastName }}
+            <small class="message-date">{{ message.date | date: 'short' }}</small>
+          </div>
+          <div class="message-content">
+            <strong>Message:</strong> {{ message.message || 'No message content available' }}
+          </div>
+        </li>
+      </ul>
+    </div>
+  
+    <!-- Send New Message Section -->
+    <div class="message-form">
+      <h3>Send a Message:</h3>
+      <input
+        type="text"
+        [(ngModel)]="messageContent"
+        placeholder="Enter your message"
+        class="form-control mb-2"
+      />
+      <input
+        type="number"
+        [(ngModel)]="recipientId"
+        placeholder="Recipient User ID"
+        class="form-control mb-2"
+        [readonly]="true"
+      />
+      <button (click)="sendMessage()" class="btn btn-primary">Send</button>
+    </div>
+  </div>
+  

@@ -1,0 +1,56 @@
+
+.float-right{
+    float: right;
+}
+
+mat-card{
+    padding: 20px;
+}
+
+table{
+    margin-top: 5px;
+    width: 100%;
+}
+
+.delete-button {
+    background-color: transparent; /* Make the background transparent */
+    color: #dc3545   ; /* Set the color of the icon to red or any other color you prefer */
+    transition: color 0.3s ease; /* Add a smooth color transition on hover */
+    background: none;
+    border: none;
+    cursor: pointer; /* Optional: Add a pointer cursor on hover */
+  }
+  
+  .delete-button:hover {
+    color: darkred; /* Change the color on hover to a darker shade of red */
+  }
+.edit-button ,.float-right {
+    background-color: transparent; /* Make the background transparent */
+    color: #007bff  ; /* Set the color of the icon to red or any other color you prefer */
+    transition: color 0.3s ease; /* Add a smooth color transition on hover */
+    background: none;
+    border: none;
+    cursor: pointer; /* Optional: Add a pointer cursor on hover */
+  }
+  
+  .edit-button:hover {
+    color: darkred; /* Change the color on hover to a darker shade of red */
+  }
+.View-button {
+    background-color: transparent; /* Make the background transparent */
+    color: #6c757d  ; /* Set the color of the icon to red or any other color you prefer */
+    transition: color 0.3s ease; /* Add a smooth color transition on hover */
+    background: none;
+    border: none;
+    cursor: pointer; /* Optional: Add a pointer cursor on hover */
+  }
+  
+  .View-button:hover {
+    color: darkred; /* Change the color on hover to a darker shade of red */
+  }
+
+/* Add this CSS to your component's CSS file */
+
+  
+ 
+    

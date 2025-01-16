@@ -1,0 +1,76 @@
+
+<section id="tasks" class="tasks-section" style="margin-top: 100px;" >
+  <div class="task-container">
+    <!-- Material Tabs for navigation -->
+    <mat-tab-group (selectedIndexChange)="onTabChange($event)">
+      <!-- Create Task Tab -->
+      <mat-tab label="Create Task">
+        <div class="task-form-container">
+          <form [formGroup]="taskForm" (ngSubmit)="createTask()" class="task-form">
+            <mat-form-field appearance="fill" class="form-field">
+              <mat-label>Description</mat-label>
+              <input matInput formControlName="description" placeholder="Enter task description" />
+              <mat-error *ngIf="taskForm.get('description')?.invalid && taskForm.get('description')?.touched">
+                Description is required.
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="form-field">
+              <mat-label>Assign To (Email)</mat-label>
+              <input matInput formControlName="emailto" placeholder="Enter email" />
+              <mat-error *ngIf="taskForm.get('emailto')?.invalid && taskForm.get('emailto')?.touched">
+                Valid email is required.
+              </mat-error>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" type="submit" class="submit-button">Create Task</button>
+          </form>
+        </div>
+      </mat-tab>
+
+      <!-- My Tasks Tab -->
+      <mat-tab label="My Tasks">
+        <div class="task-list">
+          <div *ngFor="let task of tasks" class="task-item">
+            <div class="task-details">
+              <p><strong>Description:</strong> {{ task.description }}</p>
+              <p><strong>Assigned To:</strong> {{ task.assignedTo.email }}</p>
+              <p><strong>Status:</strong>
+                <span [ngClass]="{ 'completed': task.completed, 'pending': !task.completed }">
+                  <mat-icon *ngIf="task.completed">check_circle</mat-icon>
+                  <mat-icon *ngIf="!task.completed">radio_button_unchecked</mat-icon>
+                  {{ task.completed ? 'Completed' : 'Pending' }}
+                </span>
+              </p>
+            </div>
+            <button mat-raised-button color="accent" (click)="onFinishTask(task.id)" *ngIf="!task.completed" class="finish-button">
+              <mat-icon>check_circle</mat-icon> Complete Task
+            </button>
+          </div>
+        </div>
+      </mat-tab>
+
+      <!-- All Tasks Tab -->
+      <mat-tab label="All Tasks">
+        <div class="task-list">
+          <div *ngFor="let task of allTasks" class="task-item">
+            <div class="task-details">
+              <p><strong>Description:</strong> {{ task.description }}</p>
+              <p><strong>Assigned To:</strong> {{ task.assignedTo.email }}</p>
+              <p><strong>Status:</strong>
+                <span [ngClass]="{ 'completed': task.completed, 'pending': !task.completed }">
+                  <mat-icon *ngIf="task.completed">check_circle</mat-icon>
+                  <mat-icon *ngIf="!task.completed">radio_button_unchecked</mat-icon>
+                  {{ task.completed ? 'Completed' : 'Pending' }}
+                </span>
+              </p>
+            </div>
+            <button mat-raised-button color="accent" (click)="onFinishTask(task.id)" *ngIf="!task.completed" class="finish-button">
+              <mat-icon>check_circle</mat-icon> Complete Task
+            </button>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</section>

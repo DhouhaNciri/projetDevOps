@@ -1,0 +1,25 @@
+.yes-button {
+    background-color: transparent; /* Make the background transparent */
+    color: #dc3545   ; /* Set the color of the icon to red or any other color you prefer */
+    transition: color 0.3s ease; /* Add a smooth color transition on hover */
+    background: none;
+    border: none;
+    cursor: pointer; /* Optional: Add a pointer cursor on hover */
+  }
+  
+  .yes-button:hover {
+    color: darkred; /* Change the color on hover to a darker shade of red */
+  }
+  
+.no-button ,.float-right {
+    background-color: transparent; /* Make the background transparent */
+    color: #007bff  ; /* Set the color of the icon to red or any other color you prefer */
+    transition: color 0.3s ease; /* Add a smooth color transition on hover */
+    background: none;
+    border: none;
+    cursor: pointer; /* Optional: Add a pointer cursor on hover */
+  }
+  
+  .no-button:hover {
+    color: darkred; /* Change the color on hover to a darker shade of red */
+  }

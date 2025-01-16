@@ -1,0 +1,55 @@
+
+<img class="wave" src="/assets/images/p3.png">
+	<div class="container">
+		<div class="img">
+			<img src="/assets/img/imagelog.png">
+		</div>
+		<div class="login-content">
+			<form  [formGroup]="loginForm">
+				<h2 class="title">Sign in</h2>
+     
+           		<div class="input-div one">
+           		   <div class="i">
+           		   		<i class="fas fa-user"></i>
+           		   </div>
+           		   <div class="div">
+           		   		
+           		   		<input placeholder="email" formControlName="email" type="email" class="input">
+           		   </div>
+           		</div>
+           		<div class="input-div pass">
+           		   <div class="i"> 
+           		    	<i class="fas fa-lock"></i>
+           		   </div>
+           		   <div class="div">
+           		    	<input placeholder="password" formControlName="password" [type]="showPassword? 'text': 'password'" class="input">
+            	   </div>
+            	</div>
+          		<input style="margin-left: -210px;" placeholder="show" type="checkbox" [checked]="showPassword" (change)="togglePasswordVisibility()"  >
+
+				<label style="margin-left: 10px;" for="passwordToggle">Show Password</label>
+
+            	<a routerLink="/forgotPassword">FORGOT PASSWORD?</a>
+              
+            <p class="social-text">Or Sign in with social platforms</p>
+            <div class="social-media">
+              <a href="#" class="social-icon" href="https://facebook.com">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="social-icon"href="https://X.com">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a   style="cursor: pointer;" class="social-icon " href="https://gmail.com">
+                <i class="fab fa-google"></i>
+              </a>
+              <a href="#" class="social-icon" href="https://linkedin.com">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+            	<input type="submit" (click)=" handleSubmit()"     class="btn" value="Login">
+            </form>
+        </div>
+    </div>
+
+
+    

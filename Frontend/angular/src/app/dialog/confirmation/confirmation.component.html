@@ -1,0 +1,13 @@
+<mat-dialog-content class="mat-typography">
+    <h5>{{ details.message }} </h5>
+  </mat-dialog-content>
+  
+  <mat-dialog-actions align="end">
+    <button mat-raised-button (click)="handleChangeAction()" class="yes-button" >
+      Yes
+    </button>
+  
+    <button mat-raised-button mat-dialog-close class="no-button" >
+      No
+    </button>
+  </mat-dialog-actions>

@@ -1,0 +1,102 @@
+<div class="container" style="margin-bottom: 100px;">
+    <div class="img">
+        <img src="/assets/img/imagelog.png">
+    </div>
+    <div class="login-content">
+        <form [formGroup]="signupForm">
+            <h2 class="title" style="color: #3F63AF;">Sign Up Tenant</h2>
+
+            <div class="input-div one">
+                <div class="i">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="div">
+                    <input type="text" placeholder="First Name" class="input" formControlName="firstName">
+                    <mat-error *ngIf="signupForm.get('firstName')?.hasError('required') && signupForm.get('firstName')?.touched">
+                        First Name is required.
+                    </mat-error>
+                </div>
+            </div>
+
+            <div class="input-div one">
+                <div class="i">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="div">
+                    <input type="text" placeholder="Last Name" class="input" formControlName="lastName">
+                    <mat-error *ngIf="signupForm.get('lastName')?.hasError('required') && signupForm.get('lastName')?.touched">
+                        Last Name is required.
+                    </mat-error>
+                </div>
+            </div>
+
+            <div class="input-div one">
+                <div class="i">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="div">
+                    <input type="email" placeholder="Email" class="input" formControlName="email">
+                    <mat-error *ngIf="signupForm.get('email')?.hasError('required') && signupForm.get('email')?.touched">
+                        Email is required.
+                    </mat-error>
+                    <mat-error *ngIf="signupForm.get('email')?.hasError('pattern')">
+                        Invalid email format.
+                    </mat-error>
+                </div>
+            </div>
+
+            <div class="input-div one">
+                <div class="i">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <div class="div">
+                    <input type="tel" placeholder="Phone Number" class="input" formControlName="phoneNumber">
+                    <mat-error *ngIf="signupForm.get('phoneNumber')?.hasError('required') && signupForm.get('phoneNumber')?.touched">
+                        Phone Number is required.
+                    </mat-error>
+                </div>
+            </div>
+
+            <div class="input-div pass">
+                <div class="i">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="div">
+                    <input [type]="showPassword ? 'text' : 'password'" placeholder="Password" class="input" formControlName="password">
+                    <mat-error *ngIf="signupForm.get('password')?.hasError('required') && signupForm.get('password')?.touched">
+                        Password is required.
+                    </mat-error>
+                    <mat-error *ngIf="signupForm.get('password')?.hasError('minlength')">
+                        Password must be at least 7 characters long.
+                    </mat-error>
+                </div>
+            </div>
+
+            <div class="show-password">
+                <input id="passwordToggle" type="checkbox" [checked]="showPassword" (change)="togglePasswordVisibility()">
+                <label for="passwordToggle">Show Password</label>
+            </div>
+
+            <a routerLink="/login">Sign In?</a>
+
+            <p class="social-text">Or Sign Up with social platforms</p>
+            <div class="social-media">
+                <a href="#" class="social-icon">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-icon">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-icon">
+                    <i class="fab fa-google"></i>
+                </a>
+                <a href="#" class="social-icon">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+
+            <button type="submit" class="btn" (click)="handleSubmit()">Sign-Up</button>
+        </form>
+    </div>
+</div>
+

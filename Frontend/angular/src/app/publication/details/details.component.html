@@ -1,0 +1,29 @@
+<h4 mat-dialog-title>{{ housing.address }}</h4>
+
+<mat-dialog-content style="overflow-x: hidden;">
+    <div class="card" style="width: 600px;">
+        <div class="card-body">
+            <p><strong>Address:</strong> {{ housing.address }}</p>
+            <p><strong>Description:</strong> {{ housing.description }}</p>
+            <p><strong>Price:</strong> ${{ housing.price }}</p>
+            <p><strong>Availability:</strong> {{ housing.availability ? 'Available' : 'Not Available' }}</p>
+            <p><strong>Available Rooms:</strong> {{ housing.availableRooms }}</p>
+            <p><strong>Amenities:</strong> {{ housing.amenities.join(', ') }}</p>
+            <p><strong>Photos:</strong> 
+                <a *ngFor="let photo of housing.photos" [href]="photo" target="_blank">
+                    {{ photo }}
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <h5>Send a Message</h5>
+        <textarea matInput placeholder="Type your message" [(ngModel)]="message" rows="4" style="width: 100%;"></textarea>
+        <button mat-raised-button color="primary" (click)="sendMessage()" style="margin-top: 10px;">Send</button>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

@@ -1,0 +1,68 @@
+<header class="top-header" style="margin-left: -1%; width:1400px  ;background-color: #fdfdfd;">
+    <nav class="navbar header-nav navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand"><img style="width: 100px ;height: 80px; " src="../../../assets/logo.jpg"
+                    alt="logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd"
+                aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-pend" id="navbar-wd" style="margin-left: 250px;">
+                <ul class="navbar-nav">
+                    <li><a routerLinkActive="active" class="nav-link active" routerLink="">Home</a></li>
+                    <li><a routerLinkActive="active" class="nav-link " routerLink="/publication">Publication</a></li>
+                    <li><a *ngIf="ownerConnect !== null &&tenantConnect==null" routerLinkActive="active" class="nav-link " routerLink="/profil">owner-profile</a>
+                        <a *ngIf="ownerConnect == null &&tenantConnect!==null" routerLinkActive="active" class="nav-link " routerLink="/profil">tenant-profile</a>
+                    </li>
+
+                    <li *ngIf="ownerConnect == null &&tenantConnect==null" class="menu-item dropdown"
+                        style="margin-top: 6px; "><a class="nav__link">Sign-In</a>
+                        <ul class="sub-nav" style="margin-bottom: 4px;">
+
+                            <li (click)="navigateToLoginStudent()"><a class="sub-nav__link"
+                                    style="margin-bottom: 4px;">OWNER</a> <i *ngIf="selectedOption =='owner'"
+                                    class="fas fa-check"></i></li>
+                            <li (click)="navigateToLoginCompany()"><a class="sub-nav__link">TENANT</a><i
+                                    *ngIf="selectedOption == 'tenant'" class="fas fa-check"></i></li>
+                                    
+                                     <li (click)="navigateToLoginAdmin()"><a class="sub-nav__link">Admin</a><i
+                                    *ngIf="selectedOption == 'admin'" class="fas fa-check"></i></li>
+                        </ul>
+
+                    </li>
+                   
+                    <li *ngIf="ownerConnect == null && tenantConnect==null" class="menu-item dropdown"
+                        style="margin-top: 6px; "><a class="nav__link">Sign-Up</a>
+                        <ul class="sub-nav" style="margin-bottom: 4px;">
+                            <li><a class="sub-nav__link" style="margin-bottom: 4px;"
+                                    routerLink="/registerOwner">OWNER</a></li>
+                            <li><a class="sub-nav__link" routerLink="/registerTenant">TENANT</a></li>
+                            
+                        </ul>
+                        <!------>
+                        <li *ngIf= " tenantConnect!==null"><a routerLinkActive="active" class="nav-link " routerLink="/tasks">Tasks</a></li>
+                        <li *ngIf="ownerConnect !== null || tenantConnect!==null"><a routerLinkActive="active" class="nav-link " routerLink="/logement">Logement</a></li>
+                        <li *ngIf="ownerConnect !== null || tenantConnect!==null"><a routerLinkActive="active" class="nav-link " routerLink="/chat">Chat</a></li>
+                        <li *ngIf="ownerConnect !== null || tenantConnect!==null" class="menu-item dropdown"
+                        style="margin-top: 6px; "><a class="nav__link">Logout</a>
+                        <ul class="sub-nav" style="margin-bottom: 4px;">
+                            <li><a class="sub-nav__link" style="margin-bottom: 4px;" (click)="goToLogin()">Logout</a>
+                            </li>
+
+                        </ul>
+
+                    </li>
+
+                    <button style="margin:0px 8px;" routerLink="dashboard" *ngIf="isAuhtenticated"
+                        class="btn btn-sm btn-cart" data-toggle="dropdown"><i class="far fa-user fa-lg"
+                            aria-hidden="true" style="cursor: pointer;"></i><span class="badge badge-danger">1</span>
+                    </button>
+                  
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+</header>

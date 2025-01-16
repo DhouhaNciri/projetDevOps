@@ -1,0 +1,83 @@
+<section id="publication" class="explore" style="margin-top: 100px;">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between;">
+        <div class="section-header">
+          <h2>Publication</h2>
+          <p>Explore Collection, the world, and many more</p>
+        </div>
+        <div style="margin-right: 60px; margin-top: 10px;" *ngIf="tenantConnect||adminConnect||ownerConnect">
+          <button mat-raised-button color="primary" (click)="openDialog()">+ annonce </button>
+        </div>
+      </div>
+  
+      <!-- Search and Filters -->
+      <div style="margin-bottom: 20px;">
+        <mat-form-field appearance="fill" style="width: 200px; margin-right: 10px;">
+          <mat-label>Search</mat-label>
+          <input matInput [(ngModel)]="searchQuery" (ngModelChange)="onFilterChange()" placeholder="Search by address or description">
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill" style="width: 150px; margin-right: 10px;">
+          <mat-label>Max Price</mat-label>
+          <input matInput type="number" [(ngModel)]="filterPrice" (ngModelChange)="onFilterChange()" placeholder="Price">
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill" style="width: 200px; margin-right: 10px;">
+          <mat-label>Available Rooms</mat-label>
+          <input matInput type="number" [(ngModel)]="filterAvailableRooms" (ngModelChange)="onFilterChange()" placeholder="Rooms">
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill" style="width: 200px; margin-right: 10px;">
+          <mat-label>Address</mat-label>
+          <input matInput [(ngModel)]="filterAddress" (ngModelChange)="onFilterChange()" placeholder="Filter by address">
+        </mat-form-field>
+        <mat-form-field appearance="fill" style="width: 200px; margin-right: 10px;">
+
+          <mat-label>Characteristics ( critères des colocataires )</mat-label>
+          <input  matInput [(ngModel)]="filterCharacteristics" 
+            (ngModelChange)="onFilterChange()" 
+            placeholder="Filter by characteristics">
+        </mat-form-field  >
+      </div>
+  
+      <div class="explore-content">
+        <div class="row">
+          <div class="col-md-4" style="margin-top: 5px; margin-bottom: 5px;" *ngFor="let housing of filteredHousings">
+            <div class="card" style="width: 18rem; height: auto;">
+              <img src="{{housing.photos[0]}}" class="card-img-top" alt="Housing Image">
+              <div class="card-body">
+                <h5 class="card-title">{{housing.address}}</h5>
+                <p class="card-text">{{housing.description}}</p>
+                <p><strong>Price:</strong> ${{housing.price}}</p>
+                <p><strong>Availability:</strong> {{housing.availability ? 'Available' : 'Not Available'}}</p>
+                <p><strong>Available Rooms:</strong> {{housing.availableRooms}}</p>
+                <p><strong>Amenities:</strong></p>
+                
+               
+                <ul>
+                  <li *ngFor="let amenity of housing.amenities">{{amenity}}</li>
+                </ul>
+                <p><strong>Characteristics:</strong> {{housing.characteristics}}</p>
+                <div class="d-flex justify-content-between">
+                  <button mat-mini-fab color="primary" (click)="show(housing)">
+                    <mat-icon>visibility</mat-icon>
+                  </button>
+                  <button *ngIf="housing.createdBy.email==email" mat-mini-fab style="background-color: red;" (click)="delete(housing.id)">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                  <button *ngIf="housing.createdBy.email==email" mat-mini-fab style="background-color: rgb(1, 156, 156);" (click)="edit(housing)">
+                    <mat-icon>edit</mat-icon>
+                  </button>
+                  <button mat-mini-fab style="background-color: #3f51b5;" (click)="openMessaging(housing)">
+                    <mat-icon>message</mat-icon>
+                  </button>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

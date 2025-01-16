@@ -1,0 +1,57 @@
+<h2 mat-dialog-title class="dialog-title">Add New Housing</h2>
+
+<mat-dialog-content class="dialog-content">
+    <form #housingForm="ngForm" (ngSubmit)="onSubmit()" class="form-container">
+        <!-- Address -->
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <input type="text" class="form-control" id="address" name="address" [(ngModel)]="housing.address" required>
+        </div>
+
+        <!-- Description -->
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea class="form-control" id="description" name="description" [(ngModel)]="housing.description" required></textarea>
+        </div>
+
+        <!-- Price -->
+        <div class="form-group">
+            <label for="price">Price:</label>
+            <input type="number" class="form-control" id="price" name="price" [(ngModel)]="housing.price" required>
+        </div>
+
+        <!-- Availability -->
+        <div class="form-group">
+            <label for="availability">Availability:</label>
+            <input type="checkbox" class="form-control" id="availability" name="availability" [(ngModel)]="housing.availability">
+        </div>
+
+        <!-- Available Rooms -->
+        <div class="form-group">
+            <label for="availableRooms">Available Rooms:</label>
+            <input type="number" class="form-control" id="availableRooms" name="availableRooms" [(ngModel)]="housing.availableRooms" required>
+        </div>
+
+        <!-- Photos -->
+        <div class="form-group">
+            <label for="photos">Photos (Comma separated URLs):</label>
+            <input type="text" class="form-control" id="photos" name="photos" [(ngModel)]="photosString" required>
+        </div>
+
+        <!-- Amenities -->
+        <div class="form-group">
+            <label for="amenities">Amenities (Comma separated):</label>
+            <input type="text" class="form-control" id="amenities" name="amenities" [(ngModel)]="amenitiesString" required>
+        </div>
+        <!-- characteristics -->
+        <div class="form-group">
+            <label for="characteristics">Characteristics :</label>
+            <textarea class="form-control" id="characteristics" name="characteristics" [(ngModel)]="housing.characteristics" required></textarea>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Close</button>
+    <button mat-raised-button [mat-dialog-close]="true" color="primary" (click)="onSubmit()" cdkFocusInitial>Save</button>
+</mat-dialog-actions>
