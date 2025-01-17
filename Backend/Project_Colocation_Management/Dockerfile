@@ -1,5 +1,5 @@
 
-FROM eclipse-temurin:23-jdk-alpine
+FROM openjdk:17-jdk-alpine
 
 
 ARG JAR_FILE=target/Project_Colocation_Management.jar
